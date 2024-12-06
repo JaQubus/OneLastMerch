@@ -6,13 +6,17 @@ body {
     color: rgba(255, 255, 255, 1);
 }
 
+.main {
+    color: rgba(0, 0, 0, 1);
+}
+
 .navbar,
 .footer {
     display: flex;
     width: 100%;
     height: auto;
     align-items: center;
-    background-color: rgba(10, 10, 10, 0.9);
+    background-color: rgba(20, 20, 20, 0.9);
 }
 
 .navbar {
@@ -30,6 +34,7 @@ body {
 #logo {
     width: 40em;
     height: auto;
+    margin-bottom: 1em;
 }
 
 .navbar-list,
@@ -43,7 +48,7 @@ body {
 
 .navbar-list {
     font-weight: 700;
-    justify-content: space-between;
+    justify-content: space-around;
     padding: 0em 2em;
     margin-top: auto;
     margin-bottom: 0.5em;
@@ -85,7 +90,7 @@ body {
 .navbar-list li a:hover,
 .footer-list li a:hover {
     transform: scale(1.2);
-    color: rgba(120, 120, 120, 0.85);
+    color: #11dce3;
 }
 
 .list-header {

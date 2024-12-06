@@ -7,8 +7,10 @@
     </head>
     <body>
         <header>{% include "base/navbar.html" %}</header>
-        <main>
-            <div>Content</div>
+        <main class="main">
+            {% block content %}
+                <h2>Some content</h2>
+            {% endblock %}
         </main>
         {% include "base/footer.html" %}
     </body>
