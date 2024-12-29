@@ -73,7 +73,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'OneLastMerch.wsgi.application'
+WSGI_APPLICATION = 'OneLastMerch.wsgi.app'
 
 
 # Database
