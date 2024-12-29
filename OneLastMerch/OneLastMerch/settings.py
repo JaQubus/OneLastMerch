@@ -29,7 +29,7 @@ SECRET_KEY = 'django-insecure-365fu+ss@yn(9+eyi3brr85erd__qrzoiaof9go&ggk^3fjxkb
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ["*", "one-last-merch-jaqubus-projects.vercel.app"]
 
 
 # Application definition
