@@ -1,31 +1,12 @@
 {
-  "version": 2,
-  "builds": [
-    {
-      "src": "manage.py",
-      "use": "@vercel/python",
-      "config": {
-        "maxLambdaSize": "50mb"
-      }
-    }
-  ],
-  "build": {
-    "env": {
-      "DJANGO_SETTINGS_MODULE": "OneLastMerch.settings.production" 
-    }
-  },
   "routes": [
     {
-      "src": "/static/(.*)",
-      "dest": "/static/$1"
+      "src": "static/(.*)",
+      "dest": "static/$1"
     },
     {
-      "src": "/api/(.*)", 
-      "dest": "manage.py $1" 
-    },
-    {
-      "src": "/*", 
-      "dest": "manage.py" 
+      "src": "/(.*)",
+      "dest": "OneLastMerch/wsgi.py"
     }
   ]
 }
