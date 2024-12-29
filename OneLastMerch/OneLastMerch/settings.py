@@ -30,11 +30,14 @@ SECRET_KEY = 'django-insecure-365fu+ss@yn(9+eyi3brr85erd__qrzoiaof9go&ggk^3fjxkb
 DEBUG = False
 
 ALLOWED_HOSTS = [".vercel.app"]
+
+
 # Application definition
 
 INSTALLED_APPS = [
     'auth',
     'utils',
+    "whitenoise_runserver_nostatic",
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -45,6 +48,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
