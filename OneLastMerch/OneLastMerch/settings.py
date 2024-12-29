@@ -82,7 +82,7 @@ WSGI_APPLICATION = 'OneLastMerch.wsgi.application'
 import dj_database_url
 
 DATABASES = {
-    'default': dj_database_url.config(default=os.getenv('POSTGRES_URL'))
+    'default': dj_database_url.config(default=os.getenv('DB_URL'))
 }
 
 
