@@ -9,14 +9,14 @@
       "src": "build_files.sh",
       "use": "@vercel/static-build",
       "config": {
-        "distDir": "staticfiles"
+        "distDir": "OneLastMerch/staticfiles"
       }
     }
   ],
   "routes": [
     {
       "src": "/static/(.*)",
-      "dest": "/static/$1"
+      "dest": "/OneLastMerch/staticfiles/$1"
     },
     {
       "src": "/(.*)",
@@ -24,4 +24,3 @@
     }
   ]
 }
-  
