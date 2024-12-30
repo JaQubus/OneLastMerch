@@ -5,11 +5,15 @@
       "src": "OneLastMerch/wsgi.py",
       "use": "@vercel/python",
       "config": {
-        "buildCommand": "python3 -m pip install -r requirements.txt && python3 manage.py collectstatic --noinput"
+        "buildCommand": "python3 -m pip install -r requirements.txt && python3 OneLastMerch/manage.py collectstatic --noinput"
       }
     }
   ],
   "routes": [
+    {
+      "src": "/static/(.*)",
+      "dest": "/static/$1"
+    },
     {
       "src": "/(.*)",
       "dest": "OneLastMerch/wsgi.py"
