@@ -2,7 +2,7 @@
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "OneLastMerch/OneLastMerch/wsgi.py"
+      "dest": "OneLastMerch/wsgi.py"
     }
   ]
 }
