@@ -2,3 +2,4 @@
 .ve/
 .gl-win-venv/
 .env
+staticfiles/

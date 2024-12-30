@@ -9,7 +9,7 @@
       "src": "build_files.sh",
       "use": "@vercel/static-build",
       "config": {
-        "distDir": "ui/staticfiles"
+        "distDir": "staticfiles"
       }
     }
   ],
@@ -22,6 +22,6 @@
       "src": "/(.*)",
       "dest": "OneLastMerch/wsgi.py"
     }
-  ],
-  "outputDirectory": "ui/staticfiles"
+  ]
 }
+  
