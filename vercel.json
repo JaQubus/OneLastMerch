@@ -1,13 +1,4 @@
 {
-  "builds": [
-    {
-      "src": "OneLastMerch/OneLastMerch/wsgi.py",
-      "use": "@vercel/python",
-      "config": {
-        "maxLambdaSize": "50mb"
-      }
-    }
-  ],
   "routes": [
     {
       "src": "/(.*)",
