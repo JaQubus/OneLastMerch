@@ -5,14 +5,7 @@
       "src": "OneLastMerch/wsgi.py",
       "use": "@vercel/python",
       "config": {
-        "buildCommand": ""
-      }
-    },
-    {
-      "src": "build_files.sh",
-      "use": "@vercel/static-build",
-      "config": {
-        "distDir": "staticfiles"
+        "buildCommand": "./build_files.sh"
       }
     }
   ],
