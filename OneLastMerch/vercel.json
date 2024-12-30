@@ -2,7 +2,7 @@
   "version": 2,
   "builds": [
     {
-      "src": "manage.py",
+      "src": "OneLastMerch/wsgi.py",
       "use": "@vercel/python",
       "config": {
         "buildCommand": "python3 manage.py collectstatic --noinput"
