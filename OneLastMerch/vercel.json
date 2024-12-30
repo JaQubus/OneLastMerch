@@ -2,10 +2,9 @@
   "version": 2,
   "builds": [
     {
-      "src": "OneLastMerch/wsgi.py",
+      "src": "manage.py",
       "use": "@vercel/python",
       "config": {
-        "maxDuration": 60,
         "buildCommand": "python3 manage.py collectstatic --noinput"
       }
     }
