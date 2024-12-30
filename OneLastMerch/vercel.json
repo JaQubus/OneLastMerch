@@ -2,17 +2,17 @@
   "version": 2,
   "builds": [
     {
-      "src": "manage.py",
+      "src": "OneLastMerch/wsgi.py",
       "use": "@vercel/python",
       "config": {
-        "buildCommand": "./build_files.sh"
+        "buildCommand": "python3 -m pip install -r requirements.txt && python3 manage.py collectstatic --noinput"
       }
     }
   ],
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "/OneLastMerch/wsgi.py"
+      "dest": "OneLastMerch/wsgi.py"
     }
   ]
 }
