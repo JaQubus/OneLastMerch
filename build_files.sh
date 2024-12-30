@@ -1,2 +1,2 @@
-pip install -r requirements.txt
-python3.9 manage.py collectstatic --noinput
+pip install -r OneLastMerch/requirements.txt
+python3.9 OneLastMerch/manage.py collectstatic --noinput
