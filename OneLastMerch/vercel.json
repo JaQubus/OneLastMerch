@@ -13,9 +13,7 @@
     "env": {
       "DJANGO_SETTINGS_MODULE": "OneLastMerch.settings"
     },
-    "commands": [
-      "python manage.py collectstatic --noinput"
-    ]
+    "buildCommand": "python manage.py collectstatic --noinput"
   },
   "routes": [
     {
