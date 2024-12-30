@@ -26,5 +26,7 @@
       "dest": "OneLastMerch/wsgi.py"
     }
   ],
-  "env": { "DJANGO_SETTINGS_MODULE": "OneLastMerch.settings" }
+  "env": {
+    "DJANGO_SETTINGS_MODULE": "OneLastMerch.settings" 
+  }
 }
