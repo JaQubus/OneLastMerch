@@ -5,7 +5,8 @@
       "src": "OneLastMerch/wsgi.py",
       "use": "@vercel/python",
       "config": {
-        "maxDuration": 60
+        "maxDuration": 60,
+        "buildCommand": "python3 manage.py collectstatic --noinput"
       }
     }
   ],
