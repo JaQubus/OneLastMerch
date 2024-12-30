@@ -3,6 +3,7 @@ from django.http import HttpResponse, JsonResponse
 from .forms import RegisterForm, LoginForm
 from django.contrib.auth.hashers import make_password, check_password
 from .models import User
+from django.contrib.auth import login, authenticate
 
 def register(request):
     if request.method == 'POST':
@@ -31,7 +32,7 @@ def show_users(request):
     users = User.objects.all().values('username', 'email', 'password')
     return JsonResponse(list(users), safe=False)
 
-def login(request):
+def login_auth(request):
     if request.method == 'POST':
         form = LoginForm(request.POST)
         if form.is_valid():
@@ -40,9 +41,10 @@ def login(request):
 
             user = User.objects.filter(email=email).first()
             
-            if not User.objects.filter(email=email) or not check_password(password, user.password):
+            if not authenticate(request, email=email) and not check_password(password, user.password):
                 form.add_error('password', 'Email or password incorrect')
             else:
+                login(request, user)
                 return redirect("/")
 
     else:
