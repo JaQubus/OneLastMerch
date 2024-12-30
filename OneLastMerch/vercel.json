@@ -2,7 +2,7 @@
   "version": 2,
   "builds": [
     {
-      "src": "OneLastMerch/wsgi.py",
+      "src": "OneLastMerch/OneLastMerch/wsgi.py",
       "use": "@vercel/python",
       "config": {
         "maxLambdaSize": "50mb"
@@ -12,7 +12,7 @@
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "OneLastMerch/wsgi.py"
+      "dest": "OneLastMerch/OneLastMerch/wsgi.py"
     }
   ],
   "build": {
