@@ -26,6 +26,5 @@
       "dest": "OneLastMerch/wsgi.py"
     }
   ],
-  "env": { "DJANGO_SETTINGS_MODULE": "OneLastMerch.settings" },
-  "post-build": "python3 OneLastMerch/manage.py collectstatic --noinput"
+  "env": { "DJANGO_SETTINGS_MODULE": "OneLastMerch.settings" }
 }
