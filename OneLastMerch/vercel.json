@@ -1,8 +1,18 @@
 {
+  "version": 2,
+  "builds": [
+    {
+      "src": "manage.py",
+      "use": "@vercel/python",
+      "config": {
+        "maxDuration": 60
+      }
+    }
+  ],
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "OneLastMerch/wsgi.py"
+      "dest": "/manage.py"
     }
   ]
 }
