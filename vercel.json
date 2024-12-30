@@ -1,4 +1,5 @@
 {
+  "version": 2,
   "builds": [
     {
       "src": "OneLastMerch/OneLastMerch/wsgi.py",
@@ -13,5 +14,10 @@
       "src": "/(.*)",
       "dest": "OneLastMerch/OneLastMerch/wsgi.py"
     }
-  ]
+  ],
+  "build": {
+    "env": {
+      "DJANGO_SETTINGS_MODULE": "OneLastMerch.settings"
+    }
+  }
 }
