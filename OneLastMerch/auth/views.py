@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse, JsonResponse
 from .forms import RegisterForm, LoginForm
-from django.contrib.auth.hashers import make_password, check_password
+from django.contrib.auth.hashers import check_password
 from .models import User
 from django.contrib.auth import login, authenticate
 
@@ -11,7 +11,7 @@ def register(request):
         if form.is_valid():
             username = form.cleaned_data['username']
             email = form.cleaned_data['email']
-            password = form.cleaned_data['password']
+            password = form.cleaned_data['password1']
 
             is_correct = True
 
@@ -19,15 +19,26 @@ def register(request):
                 form.add_error('email', 'This email is already used.')
                 is_correct = False
             if User.objects.filter(username=username).exists():
-                form.add_error('username', 'This username is already used.')            
+                form.add_error('username', 'This username is already used.')
                 is_correct = False
-            if(is_correct):
-                hashed_password = make_password(password)
 
-                User.objects.create(username=username, email=email, password=hashed_password)
+            if is_correct:
+                user = User.objects.create_user(username=username, email=email, password=password)
 
-                return redirect('/')
+                print(f"Password before hashing: {password}")
+                print(f"Password in the database (hashed): {user.password}")
+                print(f"Attempting to authenticate with username: {username} and password: {password}")
 
+                user_authenticated = authenticate(username='aadsa8', password='yfXm8BZ8GR47JwM')
+
+                if user_authenticated is not None:
+                    print("Authentication successful.")
+                    login(request, user_authenticated)
+                    return redirect('/')
+                else:
+                    print("Authentication failed for the newly created user.")
+                    print(f"User exists: {User.objects.filter(username=username).exists()}")
+                    print(f"Password check (should be True): {user.check_password(password)}")
     else:
         form = RegisterForm()
 
