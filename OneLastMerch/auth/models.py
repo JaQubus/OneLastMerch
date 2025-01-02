@@ -5,7 +5,8 @@ class User(models.Model):
     email = models.EmailField(primary_key=True)
     username = models.CharField(
         max_length=100,
-        validators=[MinLengthValidator(3)]
+        validators=[MinLengthValidator(3)],
+        unique=True
         )
     password = models.CharField(max_length=100)
 
