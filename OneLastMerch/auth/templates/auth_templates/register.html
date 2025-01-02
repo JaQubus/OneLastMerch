@@ -4,7 +4,7 @@
 
 {% block content %}
 <section class="register-container">
-    <link rel="stylesheet" href="{% static 'css/register.css' %}" />
+    <link rel="stylesheet" href="{% static 'auth/css/register.css' %}" />
     <form method="POST" action="{% url 'register' %}" class="register-form">
         <h2>Register</h2>
         {% csrf_token %}
