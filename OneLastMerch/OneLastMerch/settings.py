@@ -136,6 +136,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # change auth method
 AUTH_USER_MODEL = 'auth.User'
 
-AUTHENTICATION_BACKENDS = (
-    'django.contrib.auth.backends.ModelBackend',  # Default backend, uses 'username' or 'email'
-)
+AUTHENTICATION_BACKENDS = [
+    'auth.backend.UserAuth',
+    'django.contrib.auth.backends.ModelBackend',
+]
+

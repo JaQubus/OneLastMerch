@@ -15,6 +15,7 @@ def register(request):
 
             is_correct = True
 
+            # Check if the email or username already exists
             if User.objects.filter(email=email).exists():
                 form.add_error('email', 'This email is already used.')
                 is_correct = False
@@ -23,26 +24,29 @@ def register(request):
                 is_correct = False
 
             if is_correct:
+                # Create the user
                 user = User.objects.create_user(username=username, email=email, password=password)
 
-                print(f"Password before hashing: {password}")
-                print(f"Password in the database (hashed): {user.password}")
-                print(f"Attempting to authenticate with username: {username} and password: {password}")
+                # print(f"Password before hashing: {password}")
+                # print(f"Password in the database (hashed): {user.password}")
+                # print(f"Attempting to authenticate with email: {email} and password: {password}")
 
-                user_authenticated = authenticate(username='aadsa8', password='yfXm8BZ8GR47JwM')
+                # Authenticate using the custom backend
+                user_authenticated = authenticate(request, email=email, password=password)
 
                 if user_authenticated is not None:
-                    print("Authentication successful.")
+                    # print("Authentication successful.")
                     login(request, user_authenticated)
                     return redirect('/')
                 else:
                     print("Authentication failed for the newly created user.")
-                    print(f"User exists: {User.objects.filter(username=username).exists()}")
-                    print(f"Password check (should be True): {user.check_password(password)}")
+                    # print(f"User exists: {User.objects.filter(email=email).exists()}")
+                    # print(f"Password check (should be True): {user.check_password(password)}")
     else:
         form = RegisterForm()
 
     return render(request, 'auth_templates/register.html', {'form': form})
+
 
 def show_users(request):
     users = User.objects.all().values('username', 'email', 'password')

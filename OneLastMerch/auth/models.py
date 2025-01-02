@@ -12,13 +12,6 @@ class CustomUserManager(BaseUserManager):
         user.save(using=self._db)
         return user
 
-    def create_superuser(self, username, email, password=None):
-        user = self.create_user(username, email, password)
-        user.is_admin = True
-        user.save(using=self._db)
-        return user
-
-
 class User(AbstractBaseUser):
     email = models.EmailField(primary_key=True)
     username = models.CharField(
@@ -32,15 +25,3 @@ class User(AbstractBaseUser):
     USERNAME_FIELD = 'username'
     REQUIRED_FIELDS = ['email']
 
-    def __str__(self):
-        return self.username
-
-    def has_perm(self, perm, obj=None):
-        return True
-
-    def has_module_perms(self, app_label):
-        return True
-
-    @property
-    def is_staff(self):
-        return self.is_admin
