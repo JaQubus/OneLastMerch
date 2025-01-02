@@ -13,10 +13,15 @@ def register(request):
             email = form.cleaned_data['email']
             password = form.cleaned_data['password']
 
+            is_correct = True
+
             if User.objects.filter(email=email).exists():
                 form.add_error('email', 'This email is already used.')
-
-            else:
+                is_correct = False
+            if User.objects.filter(username=username).exists():
+                form.add_error('username', 'This username is already used.')            
+                is_correct = False
+            if(is_correct):
                 hashed_password = make_password(password)
 
                 User.objects.create(username=username, email=email, password=hashed_password)
