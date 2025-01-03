@@ -7,7 +7,7 @@
         <link rel="stylesheet" href="{% static 'css/style.css' %}" />
     </head>
     <body>
-        <header>{% include "base/navbar.html" %}</header>
+        <header>{% include "base/navbar.html" with user=user %}</header>
         <main class="main">
             {% block content %}
                 <h2>Some content</h2>

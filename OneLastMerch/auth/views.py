@@ -3,7 +3,7 @@ from django.http import HttpResponse, JsonResponse
 from .forms import RegisterForm, LoginForm
 from django.contrib.auth.hashers import check_password
 from .models import User
-from django.contrib.auth import login, authenticate
+from django.contrib.auth import login, authenticate, logout
 
 def register(request):
     if request.method == 'POST':
@@ -71,3 +71,7 @@ def login_auth(request):
         form = LoginForm()
 
     return render(request, 'auth_templates/login.html', {'form': form})
+
+def logout_auth(request):
+    logout(request)
+    return redirect('/')

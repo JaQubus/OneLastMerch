@@ -1,6 +1,7 @@
 from django.shortcuts import render
 
 def index(request):
-    print(request.session.items())
-    print(request.user.is_authenticated)
-    return render(request, 'base/index.html')
+    user = request.user
+    context = {"user": user}
+    print(user)
+    return render(request, 'base/index.html', context)
