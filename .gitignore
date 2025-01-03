@@ -1,6 +1,5 @@
 .venv/
+.ve/
 .gl-win-venv/
-.ve
-.venv
 .env
 staticfiles/

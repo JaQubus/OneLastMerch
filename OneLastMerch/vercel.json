@@ -1,0 +1,32 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "OneLastMerch/wsgi.py",
+      "use": "@vercel/python",
+      "config": {
+        "buildCommand": "python3 -m pip install -r requirements.txt && python3 OneLastMerch/manage.py collectstatic --noinput && ls -al"
+      }
+    },
+    {
+      "src": "build_files.sh",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "staticfiles"
+      }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/static/(.*)",
+      "dest": "/static/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "OneLastMerch/wsgi.py"
+    }
+  ],
+  "env": {
+    "DJANGO_SETTINGS_MODULE": "OneLastMerch.settings" 
+  }
+}
