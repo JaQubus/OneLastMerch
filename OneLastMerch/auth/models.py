@@ -13,15 +13,15 @@ class CustomUserManager(BaseUserManager):
         return user
 
 class User(AbstractBaseUser):
-    email = models.EmailField(primary_key=True)
+    id = models.BigAutoField(primary_key=True, null=False)
+    email = models.EmailField(unique=True, db_index=True)
     username = models.CharField(
         max_length=100,
         validators=[MinLengthValidator(3)],
         unique=True
     )
 
+    USERNAME_FIELD = 'email'
+    REQUIRED_FIELDS = ['username']
+
     objects = CustomUserManager()
-
-    USERNAME_FIELD = 'username'
-    REQUIRED_FIELDS = ['email']
-

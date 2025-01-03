@@ -19,16 +19,17 @@ class UserAuth(BaseBackend):
             return None
 
         # Check the password
-        if user.check_password(password):
+        if check_password(password, user.password):
             return user
 
         return None
 
-    def get_user(self, email):
+    def get_user(self, user_id):
         """
-        Retrieve a user instance by their primary key (email in this case).
+        Retrieve a user instance by their primary key (ID in this case).
         """
         try:
-            return User.objects.get(email=email)
+            return User.objects.get(pk=user_id)
         except User.DoesNotExist:
             return None
+

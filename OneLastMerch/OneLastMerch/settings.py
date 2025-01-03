@@ -140,4 +140,3 @@ AUTHENTICATION_BACKENDS = [
     'auth.backend.UserAuth',
     'django.contrib.auth.backends.ModelBackend',
 ]
-

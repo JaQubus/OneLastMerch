@@ -59,9 +59,9 @@ def login_auth(request):
             email = form.cleaned_data['email']
             password = form.cleaned_data['password']
 
-            user = User.objects.filter(email=email).first()
+            user = authenticate(request, email=email, password=password)
             
-            if not authenticate(request, email=email) and not check_password(password, user.password):
+            if not user:
                 form.add_error('password', 'Email or password incorrect')
             else:
                 login(request, user)
