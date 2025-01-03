@@ -1,0 +1,17 @@
+{% extends 'base/index.html' %}
+{% load static %}
+
+{% block content %}
+    {% if items %}
+    <div class="items-container">
+        {% for item in items %}
+            <link rel="stylesheet" href="{% static 'ui/css/shop.css' %}">
+                <div class="item">
+                    <img src="{% static 'items_images/'|add:item.image %}" alt="{{ item.title }}" class="item-image">
+                    <h1 class="image-title">{{ item.title }}</h1>
+                    <p class="item-price">${{ item.price }}</p>
+                </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+{% endblock %}

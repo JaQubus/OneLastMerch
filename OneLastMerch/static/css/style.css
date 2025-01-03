@@ -6,12 +6,13 @@ body {
     width: 100vw;
     height: 100vh;
     color: rgba(255, 255, 255, 1);
+    overflow-X: hidden;
 }
 
 .main {
     flex: 1;
     color: rgba(0, 0, 0, 1);
-    padding: 1em;
+    padding: 1.5em;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -101,4 +102,46 @@ body {
 .list-header {
     font-weight: 700;
     font-size: 1.2em;
+}
+
+.cta {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #2c3e50;
+}
+.cta a {
+    color: #3498db;
+    text-decoration: none;
+    font-weight: bold;
+}
+.cta a:hover {
+    text-decoration: underline;
+}
+.links {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 40px;
+}
+.links a {
+    text-decoration: none;
+    color: #fff;
+    background-color: #3498db;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1.1em;
+    transition: background-color 0.3s ease;
+}
+.links a:hover {
+    background-color: #2980b9;
+}
+
+.container {
+    padding: 0 35em;
+    display: flex;
+    flex-direction: column;
+}
+
+.container p {
+    font-size: 2.3ch;
 }

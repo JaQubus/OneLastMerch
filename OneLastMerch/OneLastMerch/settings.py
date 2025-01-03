@@ -37,6 +37,7 @@ ALLOWED_HOSTS = ["127.0.0.1", ".vercel.app", ".now.sh"]
 INSTALLED_APPS = [
     'auth',
     'utils',
+    'ui',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
