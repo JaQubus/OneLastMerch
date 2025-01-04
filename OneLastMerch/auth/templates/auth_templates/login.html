@@ -2,9 +2,9 @@
 {% load static %}
 
 {% block content %}
-<section class="register-container">
-    <link rel="stylesheet" href="{% static 'auth/css/register.css' %}" />
-    <form method="POST" action="{% url 'login' %}" class="register-form">
+<section class="form-container">
+    <link rel="stylesheet" href="{% static 'css/form.css' %}" />
+    <form method="POST" action="{% url 'login' %}" class="form">
         <h2>Log in</h2>
         {% csrf_token %}
         {% for field in form %}

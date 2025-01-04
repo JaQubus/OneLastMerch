@@ -141,3 +141,12 @@ AUTHENTICATION_BACKENDS = [
     'auth.backend.UserAuth',
     'django.contrib.auth.backends.ModelBackend',
 ]
+
+
+# for smtp feature / contact us
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = os.getenv("SMTP")
+EMAIL_PORT = int(os.getenv("SMTP_PORT"))
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = os.getenv("HOST_EMAIL")
+EMAIL_HOST_PASSWORD = os.getenv("HOST_PASSWORD")

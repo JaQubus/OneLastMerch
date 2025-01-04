@@ -5,7 +5,8 @@ from .models import User
 class RegisterForm(UserCreationForm):
     email = forms.EmailField(
         required=True,
-        widget=forms.EmailInput(attrs={'placeholder': 'Enter email'})
+        widget=forms.EmailInput(attrs={'placeholder': 'Enter email'}),
+        min_length=3
     )
 
     class Meta:

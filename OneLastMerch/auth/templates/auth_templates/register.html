@@ -3,9 +3,9 @@
 {% load custom_filters %}
 
 {% block content %}
-<section class="register-container">
-    <link rel="stylesheet" href="{% static 'auth/css/register.css' %}" />
-    <form method="POST" action="{% url 'register' %}" class="register-form">
+<section class="form-container">
+    <link rel="stylesheet" href="{% static 'css/form.css' %}" />
+    <form method="POST" action="{% url 'register' %}" class="form">
         <h2>Register</h2>
         {% csrf_token %}
         {% for field in form %}
