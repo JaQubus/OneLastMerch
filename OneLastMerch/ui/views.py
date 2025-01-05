@@ -12,7 +12,7 @@ load_dotenv()
 
 
 def shop(request):
-    if request.method == "POST":
+    if request.method == "POST" and request.POST.getlist("tags"):
         tags = request.POST.getlist("tags")
         print(tags)
         form = FilterForm(request.POST)
