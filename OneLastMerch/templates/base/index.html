@@ -30,12 +30,15 @@
                         <p class="section-text">Got questions or need assistance? Our team is always here to help! Reach out to us, and we’ll make sure to provide you with the best service possible.</p>
                         <p><a href="/contact" class="cta">Contact us today</a></p>
                     </div>
-            
-                    <!-- Section 4 -->
-                    <div class="section">
-                        <p class="section-text">Already a member? Log in to your account to access exclusive offers, track your orders, and stay up-to-date with the latest "OneLast" products!</p>
-                        <p><a href="/auth/login" class="cta">Login to your account</a></p>
-                    </div>
+                    {% if user.is_authenticated %}
+
+                    {% else %}
+                        <!-- Section 4 -->
+                        <div class="section">
+                            <p class="section-text">Already a member? Log in to your account to access exclusive offers, track your orders, and stay up-to-date with the latest "OneLast" products!</p>
+                            <p><a href="/auth/login" class="cta">Login to your account</a></p>
+                        </div>
+                    {% endif %}
                 </section>
             {% endblock %}
         </main>

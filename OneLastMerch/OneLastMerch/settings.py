@@ -150,3 +150,6 @@ EMAIL_PORT = int(os.getenv("SMTP_PORT"))
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = os.getenv("HOST_EMAIL")
 EMAIL_HOST_PASSWORD = os.getenv("HOST_PASSWORD")
+
+# @login_required decorator config
+LOGIN_URL = '/auth/login'

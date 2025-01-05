@@ -4,6 +4,8 @@ from .models import Item
 from .forms import ContactForm
 from dotenv import load_dotenv
 from django.core.mail import send_mail
+from django.contrib.auth.decorators import login_required
+from auth.models import User
 
 load_dotenv()
 
@@ -44,8 +46,16 @@ def contact(request):
         form = ContactForm()
     return render(request, 'ui/contact.html', {"form": form})
 
+@login_required
 def account(request):
-    return render(request, 'ui/account.html')
+    '''
+    User.objects.all().filter(email=request.user).values("username").first()["username"]
+    the User.objects.all() gets all user data, the filter works as SQL 'WHERE' clause,
+    the values() method takes the column values that are available, but returns a QuerySet,
+    the first() method turns the QuerySet into a dict
+    '''
+    context = {"username": User.objects.all().filter(email=request.user).values("username").first()["username"], "email": request.user}
+    return render(request, 'ui/account.html', context=context)
 
 def load_items(request):
     print(os.getcwd())
