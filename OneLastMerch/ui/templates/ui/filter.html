@@ -1,6 +1,7 @@
 {% load static %}
 
 <link rel="stylesheet" href="{% static 'css/form.css' %}" />
+<link rel="stylesheet" href="{% static 'css/filter.css' %}" />
 <form method="POST" action="{% url 'shop' %}" class="form">
     <!-- <h2>Log in</h2> -->
     {% csrf_token %}
