@@ -83,6 +83,7 @@ def login_auth(request):
 
     return render(request, 'auth_templates/login.html', {'form': form})
 
+# @login_required
 def logout_auth(request):
     logout(request)
     return redirect('/')
@@ -95,6 +96,16 @@ def change_password(request):
         if form.is_valid():
             old_password = form.cleaned_data["old_password"]
             new_password = form.cleaned_data["new_password1"]
+
+            user = authenticate(request=request, email=request.user, password=old_password)
+            if not user:
+                form.add_error('password', 'Password incorrect')
+            else:
+                user.set_password(new_password)
+                user.save()
+
+                login(request, user)
+
             return render(request, 'ui/change_password.html', {"success": "User password changed successfully"})
     else:
         form = PasswordChangeForm(user=user)

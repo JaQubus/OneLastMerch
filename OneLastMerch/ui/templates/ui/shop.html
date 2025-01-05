@@ -3,6 +3,7 @@
 
 {% block content %}
     {% if items %}
+    {% include "ui/filter.html" with form=form %}
     <div class="items-container">
         {% for item in items %}
             <link rel="stylesheet" href="{% static 'ui/css/shop.css' %}">

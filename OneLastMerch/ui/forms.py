@@ -14,3 +14,18 @@ class ContactForm(forms.Form):
         min_length=3,
         max_length=5000
     )
+
+class FilterForm(forms.Form):
+    CATEGORY_CHOICES = [
+        ('shirt', 'Shirts'),
+        ('accessory', 'Accessories'),
+        ('cap', 'Caps'),
+        ('hoodie', 'Hoodies'),
+    ]
+    
+    tags = forms.MultipleChoiceField(
+        choices=CATEGORY_CHOICES,
+        widget=forms.CheckboxSelectMultiple,
+        required=False,
+        label="Select Categories"
+    )
