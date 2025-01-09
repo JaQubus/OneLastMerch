@@ -1,9 +1,9 @@
 # taken from docs, should work. Hopefully
 
-services:
-  - type: web
-    plan: free
-    name: OneLastMerch
-    runtime: python
-    buildCommand: "./build.sh"
-    startCommand: "python -m gunicorn OneLastMerch.wsgi:application -k uvicorn.workers.UvicornWorker"
+# services:
+#   - type: web
+#     plan: free
+#     name: OneLastMerch
+#     runtime: python
+#     buildCommand: "./build.sh"
+#     startCommand: "ls OneLastMerch/ && python -m gunicorn OneLastMerch/OneLastMerch.asgi:application -k uvicorn.workers.UvicornWorker"
