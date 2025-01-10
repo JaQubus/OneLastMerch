@@ -14,4 +14,8 @@ python manage.py migrate
 
 ls -al
 
+echo "Listing files in the project directory after build:"
+ls -R /opt/render/project/src/
+ls -R /opt/render/project/src/OneLastMerch/
+
 chmod -R 755 ./staticfiles
