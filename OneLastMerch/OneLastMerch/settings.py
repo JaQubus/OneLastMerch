@@ -123,6 +123,9 @@ USE_TZ = True
 # ... other settings ...
 
 STATIC_URL = "/static/"
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),  # This is the path to your global static directory
+]
 
 # This production code might break development mode, so we check whether we're in DEBUG mode
 if not DEBUG:
