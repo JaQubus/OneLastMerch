@@ -14,4 +14,4 @@ python manage.py migrate
 
 ls -al
 
-chmod -R 755 ./OneLastMerch/staticfiles
+chmod -R 755 ./staticfiles
