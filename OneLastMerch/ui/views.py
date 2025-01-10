@@ -43,10 +43,10 @@ def shop_filter(request, filter):
         "form": form
     }
 
-    # Render the shop page with the filtered items
-    if items:
+    if items["items"].exists():
         return render(request, 'ui/shop.html', items)
-    return render(request, 'ui/shop.html')  # Render an empty shop page if no items match
+    items["items"] = Item.objects.all().values("title", "price", "image")
+    return render(request, 'ui/shop.html', items)  # Render an empty shop page if no items match
 
 # Render the About Us page
 def about_us(request):
