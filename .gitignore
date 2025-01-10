@@ -3,3 +3,4 @@
 .gl-win-venv/
 .env
 staticfiles/
+*.zip
